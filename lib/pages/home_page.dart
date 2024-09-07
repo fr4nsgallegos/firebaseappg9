@@ -16,8 +16,19 @@ class HomePage extends StatelessWidget {
                 usersReference.get().then(
                   (value) {
                     QuerySnapshot userCollection = value;
-                    print(userCollection.size);
-                    print(userCollection.docs);
+                    List<QueryDocumentSnapshot> docs = userCollection.docs;
+                    // print(userCollection.size);
+                    // print(userCollection.docs);
+                    // print(docs[0].id);
+                    docs.forEach(
+                      (e) {
+                        print("--------------------------");
+                        print(e);
+                        print(e.id);
+                        print(e.data());
+                        print("--------------------------");
+                      },
+                    );
                   },
                 );
               },
