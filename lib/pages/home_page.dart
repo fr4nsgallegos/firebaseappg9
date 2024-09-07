@@ -14,8 +14,12 @@ class HomePage extends StatelessWidget {
                 CollectionReference usersReference =
                     FirebaseFirestore.instance.collection("users");
                 usersReference.get().then(
-                      (value) => print(value),
-                    );
+                  (value) {
+                    QuerySnapshot userCollection = value;
+                    print(userCollection.size);
+                    print(userCollection.docs);
+                  },
+                );
               },
               child: Text("Traer datos"),
             )
