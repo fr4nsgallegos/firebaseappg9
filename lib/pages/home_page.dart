@@ -88,6 +88,12 @@ class HomePage extends StatelessWidget {
                 });
               },
               child: Text("Actualización"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                usersReference.doc("idNoExiste").delete();
+              },
+              child: Text("Eliminar"),
             )
           ],
         ),
